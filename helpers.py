@@ -2,10 +2,10 @@ from config import output_path, data_path
 import os
 import pandas as pd
 
-def save_to_excel (df, filename):
-    path = os.path.join(data_path, filename)
-    df.to_excel(filename, index=False)
-    print(f"Data saved to {filename}")
+def save_to_csv (df, filename, folder_path=output_path):
+    path = os.path.join(folder_path, filename)
+    df.to_csv(path, index=False)
+    print(f"{path} saved")
 
 def read_from_csv (filename):
     file_path = os.path.join(data_path, filename)
