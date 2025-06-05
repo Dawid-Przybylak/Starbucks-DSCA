@@ -2,6 +2,7 @@ from helpers import read_from_csv, save_to_csv
 from data_loading_pipeline import load_all_data
 import pandas as pd
 
+raw, cleaned = load_all_data()
 
 # Rename column if present
 if 'itempurchaseCold' in cleaned.columns:
