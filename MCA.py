@@ -36,9 +36,25 @@ fig_path = os.path.join(output_path, "scree_plot_mca.png")
 plt.savefig(fig_path)
 print(f"{fig_path} saved")
 
+# column coordinates and contributions
 col_coords = mca.column_coordinates(mca_data)
 save_to_csv(col_coords, "mca_col_coords.csv")
 
 col_contrib = mca.column_contributions_
 save_to_csv(col_contrib, "mca_col_contrib.csv")
 
+# # Create column names for components
+# component_names = [f"Component_{i+1}" for i in range(projected.shape[1])]
+
+# print(component_names)
+# # Convert projected to DataFrame
+# components_df = pd.DataFrame(projected, columns=component_names)
+
+#Merge with the original cleaned DataFrame
+merged_df = pd.concat([cleaned, projected], axis=1)
+
+print(projected.head(10))
+print(merged_df.head(10))
+
+# Export to CSV
+save_to_csv(merged_df, "survey_with_projected_values.csv")
